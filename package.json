@@ -1,6 +1,6 @@
 {
   "name": "require-styles",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "require() css files to have them injected as links in the <head>",
   "main": "index.js",
   "keywords": [
