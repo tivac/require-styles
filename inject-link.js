@@ -1,6 +1,6 @@
-function injectLink(href) {
-    "use strict";
-    
+"use strict";
+
+module.exports = function injectLink(href) {
     var head = document.head || document.getElementsByTagName("head")[0],
         link = document.createElement("link");
 
@@ -9,4 +9,4 @@ function injectLink(href) {
     link.setAttribute("href", href);
 
     head.appendChild(link);
-}
+};

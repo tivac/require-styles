@@ -3,10 +3,7 @@
 var fs      = require("graceful-fs"),
     path    = require("path"),
     through = require("through2"),
-    falafel = require("falafel"),
-
-    injector = fs.readFileSync(path.join(__dirname, "inject-link.js")) + "\n\n",
-    injected;
+    falafel = require("falafel");
 
 module.exports = function(file, options) {
     var dir  = path.dirname(file),
@@ -55,11 +52,7 @@ module.exports = function(file, options) {
                 }
 
                 url = path.relative(options.root || dir, full).replace(/\\/g, "/");
-                src = "injectLink(\"" + url + "\")";
-
-                if(!injected) {
-                    src = injected = injector + src;
-                }
+                src = "require(\"require-styles/inject-link\")(\"" + url + "\")";
 
                 node.update(src);
             });
